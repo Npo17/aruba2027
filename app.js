@@ -233,31 +233,69 @@ const CARS = [
   },
 ];
 
+/* Asistencia para 2 adultos, 9 días (hasta el aterrizaje de vuelta). Cobran en pesos; USD a unos ARS 1.540. */
+const UNIVERSAL_URL = 'https://www.universal-assistance.com/ar/';
+const ASSIST_CARD_URL = 'https://www.assistcard.com/ar';
+
+const INSURANCE = [
+  {
+    id: 'ua-value', company: 'Universal Assistance', short: 'Universal', plan: 'Value', medical: 80000,
+    details: ['Preexistencias USD 10.000', 'Odontología USD 600', 'Demora de equipaje USD 300'],
+    price: 191, ars: 294954, promo: '35% off', listArs: 453776, listPrice: 294, url: UNIVERSAL_URL,
+  },
+  {
+    id: 'ua-excellence', company: 'Universal Assistance', short: 'Universal', plan: 'Excellence', medical: 150000,
+    details: ['Preexistencias USD 15.000', 'Odontología USD 1.000', 'Demora de equipaje USD 400'],
+    price: 205, ars: 316936, promo: '35% off', listArs: 487594, listPrice: 316, url: UNIVERSAL_URL, recommended: true,
+  },
+  {
+    id: 'ua-maximum', company: 'Universal Assistance', short: 'Universal', plan: 'Maximum', medical: 300000,
+    details: ['Preexistencias USD 20.000', 'Odontología USD 3.000', 'Demora de equipaje USD 400'],
+    price: 218, ars: 336243, promo: '50% off', listArs: 672487, listPrice: 436, url: UNIVERSAL_URL,
+  },
+  {
+    id: 'ac-classic', company: 'Assist Card', short: 'Assist Card', plan: 'Classic', medical: 60000,
+    details: ['Preexistencias USD 10.000', 'Odontología USD 500', 'Repatriación sanitaria incluida'],
+    price: 339.3, ars: 522522, url: ASSIST_CARD_URL,
+  },
+  {
+    id: 'ac-premium', company: 'Assist Card', short: 'Assist Card', plan: 'Premium', medical: 150000,
+    details: ['Preexistencias USD 15.000', 'Medicamentos USD 2.000', 'Repatriación sanitaria USD 100.000'],
+    price: 367.2, ars: 565488, url: ASSIST_CARD_URL,
+  },
+  {
+    id: 'ac-privileged', company: 'Assist Card', short: 'Assist Card', plan: 'Privileged', medical: 300000,
+    details: ['Preexistencias USD 20.000', 'Medicamentos USD 2.500', 'Repatriación sanitaria USD 100.000'],
+    price: 396, ars: 609840, url: ASSIST_CARD_URL,
+  },
+];
+
 const PACKAGES = [
   {
-    id: 'p1', tag: 'Recomendado', badge: 'rec', featured: true, title: 'En tus fechas',
-    dates: 'A', flight: 'a-ros-latam', apt: '897169771390832746', cdw: 'agency',
-    text: 'LATAM desde Rosario, Sea Star #4 (4,99 con 105 reseñas, pileta y jacuzzi) y auto con el seguro de la rentadora.',
-    extra: 'Si tu tarjeta cubre el seguro del auto, podés cambiar a Palma Real (cerca de Palm Beach) y seguir debajo de USD 3.000.',
+    id: 'p1', tag: 'Recomendado', badge: 'rec', featured: true, title: 'Mejor depto',
+    dates: 'B', flight: 'b-ros-latam', pay: 'debit', apt: '897169771390832746', cdw: 'agency', ins: 'ua-excellence',
+    text: 'Sea Star #4 (4,99 con 105 reseñas, cama king, pileta y jacuzzi) del 18 al 25, con el vuelo de LATAM más barato y el auto en temporada baja.',
+    extra: 'Hay que pagar el vuelo con débito. Con crédito entra solo si tu tarjeta cubre el seguro del auto. El auto es estimado.',
   },
   {
-    id: 'p2', tag: 'Más barato', badge: 'cheap', title: 'Una semana después',
-    dates: 'B', flight: 'b-ros-latam', apt: '1405370902386342974', cdw: 'agency',
-    text: 'El mismo vuelo de LATAM USD 91 más barato, un depto nuevo cerca de Palm Beach y el auto en temporada baja.',
-    extra: "El auto es estimado: Jay's todavía no publicó la tarifa de temporada baja 2027.",
+    id: 'p2', tag: 'Tus fechas', badge: '', title: 'Estudio cerca de Eagle Beach',
+    dates: 'A', flight: 'a-ros-latam', pay: 'debit', apt: '1240720376102730474', cdw: 'agency', ins: 'ua-excellence',
+    text: 'Del 11 al 18 con LATAM desde Rosario y un estudio a 5 minutos de Eagle Beach (4,97, pileta y jacuzzi, cancelación gratuita).',
+    extra: 'Hay que pagar el vuelo con débito: con crédito, en el peor caso se pasa por USD 17.',
   },
   {
-    id: 'p3', tag: 'Premium', badge: 'premium', title: 'Con pileta privada',
-    dates: 'B', flight: 'b-ros-latam', apt: '597146893888988025', cdw: 'card',
-    text: 'Sun Experience 3: departamento con pileta privada (4,96 con 179 reseñas), del 18 al 25 de abril.',
-    extra: 'Para no pasar el tope, el seguro del auto tiene que cubrirlo tu tarjeta.',
+    id: 'p3', tag: 'Más barato', badge: 'cheap', title: 'Pagando con crédito',
+    dates: 'B', flight: 'b-ros-latam', pay: 'credit', apt: '1240720376102730474', cdw: 'agency', ins: 'ua-excellence',
+    text: 'El mismo estudio del 18 al 25, con el vuelo pagado con tarjeta de crédito y el seguro del auto de la rentadora.',
+    extra: "No depende del débito ni de la tarjeta. El auto es estimado: Jay's todavía no publicó la tarifa de temporada baja 2027.",
   },
 ];
 
 const CHECKLIST = [
   ['ED card', 'Cada uno la completa online en edcardaruba.aw, entre 7 días y 4 horas antes del vuelo. Incluye la Sustainability Fee de USD 20 por persona, ya sumada en los totales.'],
   ['Pasaporte', 'Vigente durante toda la estadía. Los argentinos no necesitan visa. Pueden pedir pasaje de vuelta, reserva de alojamiento y fondos suficientes.'],
-  ['Pagar en dólares', 'En Despegar, pagando en USD no se cobra la percepción RG 5617 (30%). Con débito, el vuelo de LATAM baja unos USD 55.'],
+  ['Asistencia al viajero', 'No es obligatoria para Aruba, pero conviene. Si eligen Universal, cómprenla hasta el 12 de octubre para tener el descuento: Excellence cuesta USD 205 para los dos (sin promo, ≈ USD 316) y cubre hasta USD 150.000 en gastos médicos.'],
+  ['Pagar en dólares', 'En Despegar, pagando en USD no se cobra la percepción RG 5617 (30%). Con débito, el vuelo de LATAM baja unos USD 55; dos de las combinaciones cuentan con eso.'],
   ['Equipaje', 'LATAM Light incluye mochila y carry-on de 12 kg por persona. Para despachar valija, la tarifa Standard cuesta USD 92 más por persona.'],
   ['Retiro del auto', "Llegan el domingo a las 18:10 y la web de Jay's dice que entrega de lunes a viernes, de 8 a 17:30. Confirmen por WhatsApp (+297 566-6888) que les dejan el auto en el aeropuerto; si no pueden, consulten a Royal (+297 744-9955). Edad mínima: 23 años. Jay's pide un depósito de USD 300."],
   ['Seguro del auto', 'Muchas tarjetas Gold o Platinum cubren el CDW en el exterior. Si la de ustedes lo cubre, se ahorran USD 77.'],
@@ -268,12 +306,13 @@ const CHECKLIST = [
 /* Estado y cálculos */
 
 const state = {
-  dates: 'A',
-  flight: 'a-ros-latam',
-  pay: 'credit',
+  dates: 'B',
+  flight: 'b-ros-latam',
+  pay: 'debit',
   bag: false,
   apt: '897169771390832746',
   cdw: 'agency',
+  ins: 'ua-excellence',
   levy: 'add',
   origin: 'all',
   flightSort: 'price',
@@ -287,6 +326,7 @@ const ratingText = (n) => (Number.isInteger(n) ? n.toFixed(1) : String(n)).repla
 
 const flightById = (id) => FLIGHTS.find((f) => f.id === id);
 const aptById = (id) => APTS.find((a) => a.id === id);
+const insuranceById = (id) => INSURANCE.find((i) => i.id === id);
 const flightsFor = (dates) => FLIGHTS.filter((f) => f.dates === dates);
 const levyFor = (price) => price * LEVY_RATE + LEVY_PER_NIGHT * NIGHTS;
 const carFor = (dates, cdw) => CAR_RATES[dates].base + (cdw === 'agency' ? CDW_WEEK : 0);
@@ -304,8 +344,10 @@ function compute(s) {
   const aptCost = apt.price[s.dates];
   const levyCost = s.levy === 'add' ? levyFor(aptCost) : 0;
   const carCost = carFor(s.dates, s.cdw);
-  const total = flightCost + bagCost + aptCost + levyCost + carCost + ED_CARD_FEE;
-  return { flight, apt, flightCost, bagCost, aptCost, levyCost, carCost, total };
+  const insurance = insuranceById(s.ins);
+  const insCost = insurance ? insurance.price : 0;
+  const total = flightCost + bagCost + aptCost + levyCost + carCost + insCost + ED_CARD_FEE;
+  return { flight, apt, insurance, flightCost, bagCost, aptCost, levyCost, carCost, insCost, total };
 }
 
 function equivalentFlight(id, dates) {
@@ -370,6 +412,12 @@ function renderControls() {
     .map((a) => `<option value="${a.id}">${a.name} · ★ ${ratingText(a.rating)} · ${usd(a.price[state.dates])}</option>`)
     .join('');
   aptSelect.value = state.apt;
+
+  const insSelect = document.getElementById('sel-ins');
+  insSelect.innerHTML = `${INSURANCE
+    .map((i) => `<option value="${i.id}">${i.short} ${i.plan} · médica USD ${num(i.medical)} · ${usd(i.price)}</option>`)
+    .join('')}<option value="none">No sumar (ya tengo con la tarjeta u otra)</option>`;
+  insSelect.value = state.ins;
 }
 
 function renderResult() {
@@ -399,6 +447,10 @@ function renderResult() {
       detail: `${CAR_RATES[state.dates].detail}${state.cdw === 'agency' ? ' + CDW USD 77' : ' · seguro de la tarjeta'}`,
     },
     {
+      key: 'ins', label: 'Asistencia al viajero', value: r.insCost,
+      detail: r.insurance ? `${r.insurance.short} ${r.insurance.plan} · cobertura médica USD ${num(r.insurance.medical)} · 9 días` : '',
+    },
+    {
       key: 'ed', label: 'ED card', value: ED_CARD_FEE,
       detail: 'Sustainability Fee de USD 20 por persona',
     },
@@ -415,8 +467,15 @@ function renderResult() {
   if (r.bagCost && r.flight.bagApprox) {
     notes.push('El costo de la valija se relevó en LATAM desde Rosario del 11 al 18; para este vuelo es aproximado.');
   }
+  if (r.insurance && r.insurance.listPrice) {
+    notes.push(`La asistencia tiene la promo de Universal, válida comprando hasta el 12 de octubre de 2026; sin promo cuesta ≈ ${usd(r.insurance.listPrice)}.`);
+  }
+  if (!r.insurance) {
+    notes.push('Sin asistencia sumada: revisen que la de su tarjeta cubra gastos médicos en Aruba.');
+  }
   if (diff < 0) {
-    notes.push('Para entrar en USD 3.000: probá un depto más barato, el seguro de tu tarjeta para el auto o pagar el vuelo con débito.');
+    const insTip = r.insCost > 300 ? ' la asistencia de Universal,' : '';
+    notes.push(`Para entrar en USD 3.000: probá un depto más barato,${insTip} el seguro de tu tarjeta para el auto o pagar el vuelo con débito.`);
   }
 
   document.getElementById('calc-result').innerHTML = `
@@ -452,7 +511,7 @@ function renderResult() {
 
 function renderPackages() {
   document.getElementById('packages').innerHTML = PACKAGES.map((p) => {
-    const config = { ...state, dates: p.dates, flight: p.flight, apt: p.apt, cdw: p.cdw, pay: 'credit', bag: false };
+    const config = { ...state, dates: p.dates, flight: p.flight, apt: p.apt, cdw: p.cdw, pay: p.pay, ins: p.ins, bag: false };
     const low = compute({ ...config, levy: 'included' });
     const high = compute({ ...config, levy: 'add' });
     return `
@@ -464,9 +523,10 @@ function renderPackages() {
         <h3>${p.title}</h3>
         <p class="package-text">${p.text}</p>
         <dl class="package-lines">
-          <div><dt>Vuelo ${low.flight.airline} desde ${ORIGINS[low.flight.origin]}</dt><dd>${usd(low.flightCost)}</dd></div>
+          <div><dt>Vuelo ${low.flight.airline} desde ${ORIGINS[low.flight.origin]}${p.pay === 'debit' ? ' (débito)' : ''}</dt><dd>${usd(low.flightCost)}</dd></div>
           <div><dt>${low.apt.name}</dt><dd>${usd(low.aptCost)}</dd></div>
           <div><dt>Auto ${p.cdw === 'agency' ? 'con CDW' : 'sin CDW (tarjeta)'}</dt><dd>${p.dates === 'B' ? '≈ ' : ''}${usd(low.carCost)}</dd></div>
+          <div><dt>Asistencia ${low.insurance.short} ${low.insurance.plan}</dt><dd>${usd(low.insCost)}</dd></div>
           <div><dt>ED card (2 personas)</dt><dd>${usd(ED_CARD_FEE)}</dd></div>
         </dl>
         <div class="package-total">
@@ -563,6 +623,39 @@ function renderApts() {
   }).join('');
 }
 
+function renderInsurance() {
+  const cheapest = Math.min(...INSURANCE.map((i) => i.price));
+
+  document.getElementById('ins-body').innerHTML = INSURANCE.map((i) => {
+    const selected = i.id === state.ins;
+    const badges = [
+      i.recommended ? '<span class="badge rec">Recomendado</span>' : '',
+      i.price === cheapest ? '<span class="badge cheap">Más barato</span>' : '',
+      i.promo ? `<span class="badge direct">${i.promo} hasta el 12/10</span>` : '',
+    ].join('');
+    return `
+      <tr class="${selected ? 'is-selected' : ''}">
+        <td>
+          <div class="airline">${i.company} · ${i.plan}</div>
+          ${badges ? `<div class="badges">${badges}</div>` : ''}
+        </td>
+        <td data-label="Cobertura médica"><strong>USD ${num(i.medical)}</strong></td>
+        <td data-label="Incluye">${i.details.join('<br>')}</td>
+        <td class="num" data-label="Total 2 personas">
+          <strong>${usd(i.price)}</strong>
+          <span class="sub">ARS ${num(i.ars)}</span>
+          ${i.listArs ? `<span class="sub">Sin promo: ARS ${num(i.listArs)} (≈ ${usd(i.listPrice)})</span>` : ''}
+        </td>
+        <td>
+          <div class="actions">
+            <button type="button" class="btn small${selected ? ' is-active' : ''}" data-set="ins" data-value="${i.id}">${selected ? 'Elegido' : 'Elegir'}</button>
+            <a class="btn small ghost" href="${i.url}" target="_blank" rel="noopener">Ver en ${i.short}</a>
+          </div>
+        </td>
+      </tr>`;
+  }).join('');
+}
+
 function renderStatic() {
   const dateLabels = ['', 'Mejor desde Rosario', 'Mejor desde Buenos Aires', 'Comentario'];
   document.getElementById('dates-body').innerHTML = DATE_COMPARE
@@ -591,6 +684,7 @@ function render() {
   renderResult();
   renderFlights();
   renderApts();
+  renderInsurance();
 }
 
 /* Eventos */
@@ -619,13 +713,14 @@ document.addEventListener('click', (event) => {
   const packageButton = event.target.closest('[data-package]');
   if (packageButton) {
     const p = PACKAGES.find((item) => item.id === packageButton.dataset.package);
-    setState({ dates: p.dates, flight: p.flight, apt: p.apt, cdw: p.cdw, pay: 'credit', bag: false });
+    setState({ dates: p.dates, flight: p.flight, apt: p.apt, cdw: p.cdw, pay: p.pay, ins: p.ins, bag: false });
     goToCalculator();
   }
 });
 
 document.getElementById('sel-flight').addEventListener('change', (event) => setState({ flight: event.target.value }));
 document.getElementById('sel-apt').addEventListener('change', (event) => setState({ apt: event.target.value }));
+document.getElementById('sel-ins').addEventListener('change', (event) => setState({ ins: event.target.value }));
 document.getElementById('bag').addEventListener('change', (event) => setState({ bag: event.target.checked }));
 
 renderStatic();

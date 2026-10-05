@@ -18,6 +18,7 @@
   --c-apt: #3b6fd8;
   --c-levy: #9db8ee;
   --c-car: #d98a1c;
+  --c-ins: #c94f7c;
   --c-ed: #8a63d2;
   --radius: 14px;
   color-scheme: light;
@@ -44,6 +45,7 @@
     --c-apt: #6c97ef;
     --c-levy: #3a5a99;
     --c-car: #e9a23b;
+    --c-ins: #e87fa6;
     --c-ed: #a888e6;
     color-scheme: dark;
   }
@@ -604,6 +606,10 @@ select {
   background: var(--c-car);
 }
 
+.c-ins {
+  background: var(--c-ins);
+}
+
 .c-ed {
   background: var(--c-ed);
 }
@@ -745,6 +751,14 @@ tr.is-selected td {
 
 .flights-table td:nth-child(4) {
   min-width: 130px;
+}
+
+.ins-table td:nth-child(1) {
+  min-width: 200px;
+}
+
+.ins-table td:nth-child(3) {
+  min-width: 230px;
 }
 
 .row-note {

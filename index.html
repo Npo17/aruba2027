@@ -13,13 +13,14 @@
     <div class="wrap">
       <p class="eyebrow">Abril 2027 · 2 personas · 7 noches</p>
       <h1>Viaje a Aruba</h1>
-      <p class="lead">Vuelos, departamento y auto para moverse por la isla, con un tope de <strong>USD 3.000 para los dos</strong> (sin comidas). Precios consultados el 4 de octubre de 2026 en Despegar, Copa, Aerolíneas Argentinas, Airbnb y rentadoras de Aruba.</p>
+      <p class="lead">Vuelos, departamento, auto para moverse por la isla y asistencia al viajero, con un tope de <strong>USD 3.000 para los dos</strong> (sin comidas). Precios consultados el 4 de octubre de 2026 en Despegar, Copa, Aerolíneas Argentinas, Airbnb, rentadoras de Aruba, Assist Card y Universal Assistance.</p>
       <nav class="toc" aria-label="Secciones">
         <a href="#combinaciones">Combinaciones</a>
         <a href="#calculadora">Calculadora</a>
         <a href="#vuelos">Vuelos</a>
         <a href="#deptos">Departamentos</a>
         <a href="#autos">Auto</a>
+        <a href="#asistencia">Asistencia</a>
         <a href="#antes">Antes de comprar</a>
       </nav>
     </div>
@@ -29,7 +30,7 @@
     <section id="combinaciones" class="section">
       <div class="section-head">
         <h2>Tres combinaciones que entran en USD 3.000</h2>
-        <p class="muted">Cada total va del precio publicado al peor caso: que el departamento cobre aparte el impuesto turístico de Aruba (12,5% + USD 3 por noche).</p>
+        <p class="muted">Incluyen vuelos, depto, auto, asistencia al viajero y la ED card. Cada total va del precio publicado al peor caso: que el departamento cobre aparte el impuesto turístico de Aruba (12,5% + USD 3 por noche).</p>
       </div>
       <div class="packages" id="packages"></div>
     </section>
@@ -37,7 +38,7 @@
     <section id="calculadora" class="section">
       <div class="section-head">
         <h2>Armá tu combinación</h2>
-        <p class="muted">Elegí fechas, vuelo, departamento y seguros. El total se recalcula al instante.</p>
+        <p class="muted">Elegí fechas, vuelo, departamento, seguro del auto y asistencia. El total se recalcula al instante.</p>
       </div>
       <div class="calc">
         <div class="calc-controls card">
@@ -74,6 +75,10 @@
               <button type="button" data-value="card">Lo cubre mi tarjeta</button>
             </div>
           </div>
+          <label class="control">
+            <span class="control-label">Asistencia al viajero (2 personas)</span>
+            <select id="sel-ins"></select>
+          </label>
           <div class="control">
             <span class="control-label">Impuesto turístico del depto</span>
             <div class="seg" data-key="levy">
@@ -156,7 +161,7 @@
           <button type="button" data-value="rating">Mejor puntaje</button>
         </div>
       </div>
-      <p class="note note-top">«Viaje completo» suma el vuelo, el auto y las opciones elegidas en la calculadora.</p>
+      <p class="note note-top">«Viaje completo» suma el vuelo, el auto, la asistencia y las opciones elegidas en la calculadora.</p>
       <div class="apts" id="apts"></div>
     </section>
 
@@ -182,6 +187,29 @@
       </div>
     </section>
 
+    <section id="asistencia" class="section">
+      <div class="section-head">
+        <h2>Asistencia al viajero</h2>
+        <p class="muted">Precio para los dos (cotizado para 2 adultos de 30 años) del 11 al 19 de abril: 9 días, hasta que aterrizan de vuelta. Del 18 al 26 cuesta lo mismo. No es obligatoria para entrar a Aruba, pero la atención médica para turistas se paga.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="ins-table stack">
+          <thead>
+            <tr>
+              <th>Plan</th>
+              <th>Cobertura médica</th>
+              <th>Incluye</th>
+              <th class="num">Total 2 personas</th>
+              <th><span class="visually-hidden">Acciones</span></th>
+            </tr>
+          </thead>
+          <tbody id="ins-body"></tbody>
+        </table>
+      </div>
+      <p class="note">Universal tiene entre 35% y 50% de descuento comprando hasta el 12 de octubre de 2026, aunque el viaje sea en abril. La promo actual de Assist Card (hasta 55% con Galicia, Santander, BBVA y Macro) solo vale para viajes que empiezan hasta el 31 de marzo de 2027, así que no aplica.</p>
+      <p class="note">Las dos cobran en pesos; los valores en dólares son aproximados, a unos ARS 1.540 por dólar. Algunas tarjetas de crédito incluyen asistencia si pagan los pasajes con ellas: si la de ustedes la tiene, revisen cuánto cubre.</p>
+    </section>
+
     <section id="antes" class="section">
       <div class="section-head">
         <h2>Antes de comprar</h2>
@@ -197,7 +225,8 @@
         <li>Vuelos: <a href="https://www.despegar.com.ar" target="_blank" rel="noopener">Despegar</a>, <a href="https://www.copaair.com" target="_blank" rel="noopener">Copa</a>, <a href="https://www.aerolineas.com.ar" target="_blank" rel="noopener">Aerolíneas Argentinas</a> y Google Flights (fechas alternativas desde Ezeiza).</li>
         <li>Departamentos: <a href="https://www.airbnb.com.ar" target="_blank" rel="noopener">Airbnb</a>.</li>
         <li>Autos: <a href="https://www.jayscarrentalaruba.com/cars-rates/economy/" target="_blank" rel="noopener">Jay's Car Rental</a>, <a href="https://www.arubaroyal.com/deals/" target="_blank" rel="noopener">Royal Car Rental</a> y <a href="https://www.valuearuba.com/lowseason.php" target="_blank" rel="noopener">Value Car Rental</a>.</li>
-        <li>Impuesto turístico: <a href="https://www.grantthornton.aw/globalassets/__shared__/newsflash---regulation-and-tax-compliance-with-respect-to-your-vacation-home-in-aruba.pdf" target="_blank" rel="noopener">Grant Thornton Aruba</a>. Ingreso al país: <a href="https://www.edcardaruba.aw" target="_blank" rel="noopener">ED card de Aruba</a>.</li>
+        <li>Asistencia al viajero: <a href="https://www.universal-assistance.com/ar/" target="_blank" rel="noopener">Universal Assistance</a> y <a href="https://www.assistcard.com/ar" target="_blank" rel="noopener">Assist Card</a>.</li>
+        <li>Impuesto turístico: <a href="https://www.grantthornton.aw/globalassets/__shared__/newsflash---regulation-and-tax-compliance-with-respect-to-your-vacation-home-in-aruba.pdf" target="_blank" rel="noopener">Grant Thornton Aruba</a>. Ingreso al país: <a href="https://www.edcardaruba.aw" target="_blank" rel="noopener">ED card de Aruba</a> y <a href="https://www.aruba.com/es/planea-tu-visita/como-llegar-a-aruba/requisitos" target="_blank" rel="noopener">requisitos en aruba.com</a>.</li>
       </ul>
     </div>
   </footer>
